@@ -1,0 +1,19 @@
+<h3>Pages</h3><br/>
+
+<table class="table table-striped" style="width: 400px">
+<?php foreach($data['pages'] as $page_data): ?>
+    <tr>
+        <td><strong><?=$page_data['title']?></strong></td>
+        <td align="right">
+            <a href="/admin/pages/edit/<?=$page_data['id']?>" class="btn btn-sm btn-warning">Edit</a>
+            <a href="/admin/pages/delete/<?=$page_data['id']?>" onclick="return confirmDelete()" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
+
+<br/>
+
+<div>
+    <a href="/admin/pages/add/" class="btn btn-sm btn-success">New Page</a>
+</div>
