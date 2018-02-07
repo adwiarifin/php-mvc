@@ -7,4 +7,9 @@ class Install extends Model {
 		return $this->db->query($sql);
 	}
 
+	public function getTableDescription($table) {
+		$sql = 'describe ' . $table;
+		return $this->db->query($sql);
+	}
+
 }

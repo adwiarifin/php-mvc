@@ -5,14 +5,16 @@
 		<thead>
 			<tr>
 				<th>Table</th>
+				<th>CRUD</th>
 				<th>Select?</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($data as $item): ?>
+			<?php foreach($data as $item): $table = $item['Tables_in_'.Config::get('db.db_name', 'mvc')]; ?>
 			<tr>
-				<td><?php echo $item['Tables_in_'.Config::get('db.db_name', 'mvc')] ?></td>
-				<td><input type="checkbox" name="tables['<?php echo $item['Tables_in_'.Config::get('db.db_name', 'mvc')] ?>']"></td>
+				<td><?php echo $table; ?></td>
+				<td><a href="/admin/installs/crud/<?php echo $table; ?>">CRUD</a></td>
+				<td><input type="checkbox" name="tables[<?php echo $item['Tables_in_'.Config::get('db.db_name', 'mvc')] ?>]"></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
