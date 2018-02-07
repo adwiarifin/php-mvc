@@ -1,0 +1,10 @@
+<h3>Installation</h3><br/>
+
+<ul>
+	<?php foreach($data as $item): ?>
+	<li><?php echo $item['Tables_in_'.Config::get('db.db_name', 'mvc')] ?></li>
+	<?php endforeach; ?>
+</ul>
+	
+
+<br/>
