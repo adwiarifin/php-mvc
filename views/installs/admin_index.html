@@ -1,10 +1,25 @@
 <h3>Installation</h3><br/>
 
-<ul>
-	<?php foreach($data as $item): ?>
-	<li><?php echo $item['Tables_in_'.Config::get('db.db_name', 'mvc')] ?></li>
-	<?php endforeach; ?>
-</ul>
+<form method="post" action="">
+	<table class="table table-stripped">
+		<thead>
+			<tr>
+				<th>Table</th>
+				<th>Select?</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($data as $item): ?>
+			<tr>
+				<td><?php echo $item['Tables_in_'.Config::get('db.db_name', 'mvc')] ?></td>
+				<td><input type="checkbox" name="tables['<?php echo $item['Tables_in_'.Config::get('db.db_name', 'mvc')] ?>']"></td>
+			</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+	<input type="submit" name="submit" class="btn btn-primary" />
+</form>
+
 	
 
 <br/>
